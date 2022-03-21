@@ -1,0 +1,94 @@
+/* global styles */
+.body{
+    background: url("/assets/img/g7.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+
+.section-acercaDe .div-Nombre .h1-Nombre {
+    color: #010508;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 5px #ddd;
+    
+  }
+  
+  .section-acercaDe .div-Nombre .h2-Titulo {
+    color: #010508 ;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 5px #ddd;
+  }
+ 
+
+  
+  .section-acercaDe .div-acercaDe {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.5);
+
+
+  }
+
+  .section-acercaDe .div-acercaDe .p-experiencia {
+    padding: 0px 20px 10px 40px;
+    color: #010508;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  
+  @media screen and (max-width: 3500px) {
+    .section-acercaDe .div-acercaDe {
+      width: 70%;
+    }
+  }
+  
+             
+  .section-acercaDe .div-acercaDe .h3-acercaDe {
+    /* color: #010508; */
+    color: rgb(30, 14, 119);
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  @media screen and (max-width: 500px) {
+    .section-acercaDe .div-acercaDe .h3-acercaDe {
+      text-align: left !important;
+      padding-left: 20px;
+    }
+  }
+
+
+
+
+  .section-acercaDe .div-acercaDe .p-acercaDe {
+    padding: 20px 20px 20px 40px;
+     color: #010508; 
+    
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .section-acercaDe .div-acercaDe .p-acercaDe {
+      font-size: 100%;
+    }
+  }@media screen and (min-width: 1100px) {
+    .section-acercaDe .div-acercaDe .p-acercaDe,.section-acercaDe .div-acercaDe .p-experiencia {
+      font-size: 140%;
+    }
+  }
+  @media screen and (min-width: 340px) {
+    .section-acercaDe .div-acercaDe .p-acercaDe,.section-acercaDe .div-acercaDe .p-experiencia {
+      display:row;
+      line-height: 23px;
+      text-decoration: none;
+      text-align: left;
+      margin-left:-30px ;
+      font-size: 140%;
+     
+    }
+  }
+  @media screen and (max-width: 340px) {
+    .section-acercaDe .div-acercaDe .p-experiencia, .section-acercaDe .div-acercaDe .p-acercaDe {
+      padding: 5px !important;
+    }
+  }

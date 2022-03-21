@@ -1,0 +1,38 @@
+ 
+       .container .img-Perfil {
+        margin-top: -80px;
+        max-height:150px;         
+      }
+      @media screen and (max-width:1200px) {
+        .container .img-Perfil{
+            margin:-80px auto; 
+         }
+        }
+              @media screen and (max-width:560px) {
+                .container .img-Perfil{margin-left: 0px ; }
+              }
+
+              @media screen and (max-width:360px) {
+                .container .img-Perfil{
+                height: 100px;
+                
+
+              
+              }
+              }
+
+
+
+      .div-Nombre{
+        margin-top: 50px;
+      }
+      @media screen and (max-width:365px) {
+        .div-Nombre{
+        margin-top: 85px;
+
+      
+      }
+      }
+
+
+     

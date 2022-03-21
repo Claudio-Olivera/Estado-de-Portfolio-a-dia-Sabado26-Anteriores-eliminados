@@ -1,0 +1,44 @@
+
+<!--===== Inicio de ACERCA DE===== -->
+
+
+<section class="section-acercaDe bg-transparent position-relative">
+  <div class="container">
+    <img class="img-Perfil rounded-circle d-block mb-4" src="./assets/img/cara-de-pez.jpg" alt="Foto Personal"/>
+  </div>
+
+  <div class="div-Nombre" >
+
+    <h1 class="h1-Nombre display-1 text-center ">no importa talvez</h1>
+
+    <h2 class="h2-Titulo display-5 text-center mt-3 mb-5">esto</h2>
+
+   </div>
+
+<article class="div-acercaDe mx-auto rounded">
+      <h3 class="h3-acercaDe pt-4 ps-4 display-6 text-left ">Acerca de</h3>
+      <p class="p-acercaDe text-left p-5">
+        pero por las dudas
+      </p>
+    </article>
+
+    <span *ngIf="mostrarse == true else mostrar"></span>
+    
+    <ng-template class="div-Nombre" #mostrar >
+    <article class="div-acercaDe mx-auto rounded mb-4">
+    
+    <p class="p-acercaDe text-center" >Introduce aquí tus nombres<input class="div-acercaDe mt-2 ms-2 rounded" type="text" [(ngModel)]="editarAcerca.nombres"><br></p>
+    <p class="p-acercaDe text-center" >Introduce aquí tus apellidos<input class="div-acercaDe ms-2 rounded mt-1" type="text"  [(ngModel)]="editarAcerca.apellidos"><br></p> 
+    <p class="p-acercaDe text-center" >Introduce aquí tu ocupación<input  class="div-acercaDe ms-1 rounded mt-1" type="text"  [(ngModel)]="editarAcerca.ocupacion"><br></p> 
+    <p class="p-acercaDe text-center" >Introduce aquí <br>"Acerca de" <br><textarea class="div-acercaDe ms-2 rounded mt-1" [(ngModel)]="editarAcerca.sobremi"></textarea><br></p> 
+
+    <div class="text-center"> 
+      <button class="btn btn-primary p-2 mb-3" (click)="editarDatos()">Enviar</button>
+    </div>
+
+   </article>
+   </ng-template> 
+
+  </section>
+  <!-- =====Fin de ACERCA DE ...=====-->
+
