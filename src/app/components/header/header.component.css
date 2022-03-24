@@ -195,3 +195,15 @@
     width: 90%;
   }
 
+  .texto-errorUser{
+    padding: -50%;
+    margin-top: -14%;
+    font-size: 80%;
+    margin-bottom: -7%;
+  }
+  .texto-errorContraseña{
+    padding: -50%;
+    margin-top: -14%;
+    font-size: 80%;
+    margin-bottom: 4%;
+  }

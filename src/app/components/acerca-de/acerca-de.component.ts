@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
-import { Acercade, PortfolioService } from 'src/app/servicios/portfolio.service';
+
+import { AutenticacionService} from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -9,20 +10,23 @@ import { Acercade, PortfolioService } from 'src/app/servicios/portfolio.service'
 })
 export class AcercaDeComponent implements OnInit {
   mostrarse:boolean=false;
-  miPortfolio:any;
+  miPortfolio:any=[];
   nuevoAcerca : Acercade = { nombres:' ', apellidos: ' ', ocupacion: ' ', sobremi: ' ' };
   editarAcerca : Acercade = { nombres:' ', apellidos: ' ', ocupacion: ' ', sobremi: ' ' };
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor(private datosPortfolio:AutenticacionService) { }
 
   ngOnInit(): void {
-   this.verDatos(); 
-  
+    this.datosPortfolio.obtenerDatos().subscribe(data=>{
+      console.log("Datos personales"+ JSON.stringify(data));
+      this.miPortfolio=data[0];
+    })
   }
 
   verDatos(){
     this.datosPortfolio.obtenerDatos().subscribe(data=>{
       console.log(data);
+      
       this.miPortfolio=data [0]})
     }
 
@@ -34,13 +38,13 @@ export class AcercaDeComponent implements OnInit {
 
   
   agregarDatos(){
-    this.datosPortfolio.agregarDatos(this.nuevoAcerca).subscribe(
+    this.datosPortfolio.sumarDatos(this.nuevoAcerca).subscribe(
     data => {
     console.log(data); } );
   }
 
  editarDatos(){
-    this.datosPortfolio.editarDatos(this.editarAcerca).subscribe(
+    this.datosPortfolio.editDatos(this.editarAcerca).subscribe(
     data => {
     console.log(data); } );
   }
@@ -48,3 +52,10 @@ export class AcercaDeComponent implements OnInit {
   
   }
   
+
+  export interface Acercade{
+    nombres : string;
+    apellidos: string;
+    ocupacion:string;
+    sobremi:string;
+  }

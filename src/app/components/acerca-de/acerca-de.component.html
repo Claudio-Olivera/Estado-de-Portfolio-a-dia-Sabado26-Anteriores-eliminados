@@ -9,16 +9,16 @@
 
   <div class="div-Nombre" >
 
-    <h1 class="h1-Nombre display-1 text-center ">no importa talvez</h1>
+    <h1 class="h1-Nombre display-1 text-center ">{{miPortfolio.nombres}} {{miPortfolio.apellidos}}</h1>
 
-    <h2 class="h2-Titulo display-5 text-center mt-3 mb-5">esto</h2>
+    <h2 class="h2-Titulo display-5 text-center mt-3 mb-5">{{miPortfolio.ocupacion}}</h2>
 
    </div>
 
 <article class="div-acercaDe mx-auto rounded">
       <h3 class="h3-acercaDe pt-4 ps-4 display-6 text-left ">Acerca de</h3>
       <p class="p-acercaDe text-left p-5">
-        pero por las dudas
+       {{miPortfolio.sobremi}}
       </p>
     </article>
 
@@ -33,7 +33,7 @@
     <p class="p-acercaDe text-center" >Introduce aquí <br>"Acerca de" <br><textarea class="div-acercaDe ms-2 rounded mt-1" [(ngModel)]="editarAcerca.sobremi"></textarea><br></p> 
 
     <div class="text-center"> 
-      <button class="btn btn-primary p-2 mb-3" (click)="editarDatos()">Enviar</button>
+      <button class="btn btn-primary p-2 mb-3" (click)="editarDatos()" >Enviar</button>
     </div>
 
    </article>

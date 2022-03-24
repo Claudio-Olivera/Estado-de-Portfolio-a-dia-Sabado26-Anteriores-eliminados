@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
+import { InterceptorService } from 'src/app/servicios/interceptor.service';
 
 
 @Component({
@@ -11,28 +13,46 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 export class HeaderComponent implements OnInit {
   form:FormGroup;
  oculto : boolean= false;
+  router: any;
 
-  constructor(private formBuilder:FormBuilder, private autenticacionService:AutenticacionService ) { 
+  constructor(private formBuilder:FormBuilder, private autenticacionService:AutenticacionService ,private ruta:Router) { 
     this.form=this.formBuilder.group({
-      nombreUsuario:[' ',[Validators.required]],
-      password:[' ',[Validators.required, Validators.minLength(8)]]
+      nombreUsuario:[,[Validators.required, Validators.minLength(9)]],
+      password:[,[Validators.required,Validators.minLength(8)]]
       });
   
   }
 
   ngOnInit(): void {
+ 
     
   }
   
     mostrar(){
       this.oculto = !this.oculto;
     }
-    onenviar(event:Event){
-    event.preventDefault;
-    this.autenticacionService.IniciarSesion(this.form.value).subscribe(data=>{
-      console.log("DATA:" + JSON.stringify(data));
+    
+    
 
-    })
+    get User()
+    {
+      return this.form.get('nombreUsuario');
+
+    }
+
+    get Password()
+    {
+      return this.form.get('password');
+      
+    }
+
+    onEnviar(event:Event){
+      event.preventDefault;
+      this.autenticacionService.IniciarSesion(this.form.value).subscribe(data=>{
+        console.log("DATA:" + JSON.stringify(data));
+        this.ruta.navigate(['/']);
+
+      })
     }
 
   }

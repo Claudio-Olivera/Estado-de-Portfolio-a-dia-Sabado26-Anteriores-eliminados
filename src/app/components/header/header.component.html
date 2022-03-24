@@ -1,12 +1,35 @@
 <nav class="inline-container main-nav"> 
    
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+        
         <div *ngIf="oculto" class="pequecontenedor col" >
-            <input type="login"
-        placeholder="usuario" formControlName="nombreUsuario" class="form-control" id="userLog" aria-describedby="userLog">
+            
+                <input type="text" 
+                placeholder="User" formControlName="nombreUsuario" class="form-control" id="usuario">
+            
+                <div *ngIf="User?.errors && User?.touched">
+                <p *ngIf="User?.hasError('required')" class="text-danger texto-errorUser">
+                    El usuario es requerido.
+                </p>
+                <p *ngIf="User?.errors?.['minlength']" class="text-danger texto-errorUser">
+                    Ingresa más de 8 caracteres.
+                </p>
+                </div> 
+        
+
         <input type="password" 
         placeholder="contraseña"  formControlName="password" class="form-control" id="password">
-        <button type="submit" class="btn userboton" (click)="onenviar($event)">Ingresar</button>
+
+        <div *ngIf="Password?.errors && Password?.touched">
+            <p *ngIf="Password?.hasError('required')" class="text-danger texto-errorContraseña">
+               La contraseña es requerida.
+            </p>
+            <p *ngIf="Password?.errors?.['minlength']" class="text-danger texto-errorContraseña">
+                Ingresa más de 8 caracteres.
+            </p>
+            </div> 
+
+        <button type="submit" class="btn userboton" >Ingresar</button>
     </div>
 </form>
 
