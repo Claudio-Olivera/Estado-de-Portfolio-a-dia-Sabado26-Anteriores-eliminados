@@ -49,10 +49,8 @@ export class AcercaDeComponent implements OnInit {
     console.log(data); } );
   }
   
-  
   }
   
-
   export interface Acercade{
     nombres : string;
     apellidos: string;

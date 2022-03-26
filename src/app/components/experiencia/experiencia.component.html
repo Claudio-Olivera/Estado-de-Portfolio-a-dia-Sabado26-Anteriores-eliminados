@@ -7,27 +7,22 @@
 
       <h2 class="h3-acercaDe pt-4 ps-4 display-6 text-left  mb-5">Experiencia</h2>
 
-      <h4 class="h3-acercaDe  text-center">Armado y reparación de computadoras y celulares</h4>
+      <h4 class="h3-acercaDe  text-center">{{miPortfolio.empleoUno}}</h4>
       <p class="p-experiencia text-left p-5">
-        Me desempeño de forma independiente como técnico de computadoras y celulares, realizando formateos, reparación y
-        mantenimiento de hardware, instalación de programas y doy asesoramiento para la compra de componentes y equipos,
-        para su posterior armado.
+      {{miPortfolio.descripcionUno}}
       </p>
 
-      <h4 class="h3-acercaDe text-center  mt-5">Encargado de personal en campo y control de cantera</h4>
+      <h4 class="h3-acercaDe text-center  mt-5">{{miPortfolio.empleoDos}}</h4>
       <p class="p-experiencia text-left p-5">
-        Al servicio de Tecniclima S.R.L, de Jorge Eduardo Oberholzer, desempeñé tareas de encargado y proveedor de
-        suministros a obreros de la construcción de una base de operaciones en el yacimiento petrolífero Rincón del
-        Mangrullo.
-        Además, mis tareas consistían en controlar las operaciones de movimiento de suelo que realizaba YPF en las
-        canteras (Control de ingreso y egreso de camiones con carga) y campos de mi empleador.
+        {{miPortfolio.descripcionDos}}
       </p>
 
-      <h4 class="h3-acercaDe text-center mt-5  ">Mantenimiento y reparación de cámaras de atmósfera controlada</h4>
+      <h4 class="h3-acercaDe text-center mt-5  ">{{miPortfolio.empleoTres}}</h4>
       <p class="p-experiencia text-left p-5">
-        Trabajé con el Ingeniero Carlos Agüero, para diferentes empresas de la zona del alto valle y en el puerto de San
-        Antonio Oeste, llevando a cabo tareas de mantenimiento, reparación e instalación de equipos para cámaras de atmósfera controlada, imprescindibles en la conservación de alimentos.
+        {{miPortfolio.descripcionTres}}
       </p>
+
+
 
       <!-- <h5 class="p-experiencia text-left mt-5">Atención al público</h5>
       <p class="p-experiencia text-left">
@@ -35,7 +30,29 @@
       </p> -->
 
 
+  
+  <!--======= Fin de Experiencia..======= -->
+
+ <span *ngIf="mostrarse == true else mostrar"></span>
+    
+    <ng-template class="div-Nombre" #mostrar >
+    <article class="div-acercaDe mx-auto rounded mb-4  " >
+    
+    <p class="p-acercaDe text-center" >Introduce tu empleo<input class="div-acercaDe mt-2 ms-2 rounded" type="text" [(ngModel)]=" editarExperiencia.empleoUno"><br></p>
+    <p class="p-acercaDe text-center" >Introduce una descripcion del mismo<textarea class="div-acercaDe ms-2 rounded mt-1" [(ngModel)]=" editarExperiencia.descripcionUno"></textarea><br></p> 
+    <p class="p-acercaDe text-center" >Introduce tu empleo<input class="div-acercaDe mt-2 ms-2 rounded" type="text" [(ngModel)]=" editarExperiencia.empleoDos"><br></p>
+    <p class="p-acercaDe text-center" >Introduce una descripcion del mismo<textarea class="div-acercaDe ms-2 rounded mt-1" [(ngModel)]=" editarExperiencia.descripcionDos"></textarea><br></p> 
+    <p class="p-acercaDe text-center" >Introduce tu empleo<input class="div-acercaDe mt-2 ms-2 rounded" type="text" [(ngModel)]=" editarExperiencia.empleoTres"><br></p>
+    <p class="p-acercaDe text-center" >Introduce una descripcion del mismo<textarea class="div-acercaDe ms-2 rounded mt-1" [(ngModel)]=" editarExperiencia.descripcionTres"></textarea><br></p> 
+
+
+    <div class="text-center"> 
+      <button class="btn btn-primary p-2 mb-3" (click)="editarExp()" >Enviar</button>
     </div>
 
+   </article>
+   </ng-template> 
+
   </div>
-  <!--======= Fin de Experiencia..======= -->
+
+</div>

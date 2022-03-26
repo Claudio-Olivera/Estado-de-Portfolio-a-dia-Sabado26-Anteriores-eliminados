@@ -11,11 +11,13 @@ export class AutenticacionService {
   url="https://claudioolivera.herokuapp.com/auth/login";
 
   currentUserSubject:BehaviorSubject<any>;
-  constructor(private http:HttpClient) { //fijarse si no me equivoque aca en este constructor
+  constructor(private http:HttpClient) { 
+
     console.log("El servicio de autenticacion esta corriendo");
     this.currentUserSubject=new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('current user') || '{}'))
     
   }
+  //acerca de
   obtenerDatos():Observable<any>{
     return this.http.get(this.urls+"/persona/alldata"); //aca va la url request de datos
     
@@ -31,6 +33,21 @@ export class AutenticacionService {
   editDatos( arr :  Acercade):Observable<any>{
   return this.http.put(this.urls+"/persona/actualizar/"+1, arr);
 }
+
+//experiencia
+obtenerExp():Observable<any>{
+  return this.http.get(this.urls+"/ver/experiencia"); //aca va la url request de datos
+  
+}
+
+sumarExp(arr : experiencia):Observable<any>{
+return this.http.post(this.urls+"/new/experiencia", arr );
+}
+
+editExp( arr :  experiencia):Observable<any>{
+  return this.http.put(this.urls+"/modExp/"+11, arr);
+}
+
 
   IniciarSesion(credenciales:any):Observable<any>{
     return this.http.post(this.url, credenciales).pipe(map(data=>{
@@ -53,4 +70,15 @@ export interface Acercade{
   apellidos: string;
   ocupacion:string;
   sobremi:string;
+  
+}
+export interface experiencia{
+
+  empleoUno: String;
+  descripcionUno:String;
+  empleoDos: String;
+  descripcionDos:String;
+  empleoTres:String;
+  descripcionTres: String;
+  
 }

@@ -8,10 +8,10 @@ import { AutenticacionService } from './autenticacion.service';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(private autenticacionServicio:AutenticacionService) { }
+  constructor(private autenticacionService:AutenticacionService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-    var currentUser= this.autenticacionServicio.UsuarioAutenticado;
+    var currentUser= this.autenticacionService.UsuarioAutenticado;
     if(currentUser && currentUser.token){
       req = req.clone({
         setHeaders:{
